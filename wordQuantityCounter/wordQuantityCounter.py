@@ -1,6 +1,10 @@
 # the code is tested on small amount of data where quantity of words is predefined -  the perfect match was reached
 import string
+import tkinter as tk
 from tkinter import filedialog
+
+root = tk.Tk()
+root.withdraw()
 
 wordDictionary = dict()
 
@@ -19,7 +23,7 @@ except:
 # function that accepts value of file handle as the argument and fills dictionary with distinct keys and their appropriate values (count of the words)
 def wordQuantityCount(sourceFile):
     for line in sourceFile:
-        line = line.rstrip()   # all spaces, 'new line' characters are cut out from line beginning and end
+        line = line.rstrip()   # 'new line '\n' characters are cut out from end of each line
         line = line.translate(line.maketrans(string.punctuation, '                                ',))   # each sign that is in string.punctuation string is replaced with space for each line
         line = line.lower()   # all words become lowercase for each line
         listOfWords = line.split()   # each line of the dictionary is transformed into list of strings
